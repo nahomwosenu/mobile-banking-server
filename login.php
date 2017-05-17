@@ -24,7 +24,7 @@
  function login($account,$password){
  	$connect=mysqli_connect('localhost','root','','mobilebanking') or die('error connecting to db');
  	$query="select password,type from user where account_no='$account'";
- 	$result=mysqli_query($connect,$query) or die('Error internal database');
+ 	$result=mysqli_query($connect,$query) or die(mysqli_error($connect));
  	if($row=mysqli_fetch_array($result)){
  		$pass=$row['password'];
  		$type=$row['type'];
